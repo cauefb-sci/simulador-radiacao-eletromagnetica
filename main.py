@@ -80,9 +80,7 @@ EXTRA_BUTTONS = [
 ]
 
 INSTRUCTIONS = [
-    'Arraste a carga laranja ou escolha um movimento -- nada se move mais rapido que c (ajustavel na barra',
-    'abaixo do grafico). As linhas mostram ate onde a "noticia" sobre a posicao da carga ja chegou, viajando',
-    'a velocidade da luz, e preenchem a tela toda desde o primeiro quadro.',
+    ''
 ]
 
 
