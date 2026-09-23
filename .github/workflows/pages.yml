@@ -33,14 +33,14 @@ jobs:
       - name: Instalar pygbag
         run: |
           python -m pip install --upgrade pip
-          python -m pip install pygbag
+          python -m pip install pygbag==0.9.3
 
       - name: Construir versão para navegador
         env:
           PYTHONUTF8: "1"
           PYTHONIOENCODING: "utf-8"
         run: |
-          python -m pygbag --build .
+          python -m pygbag --build --ume_block=0 .
 
       - name: Enviar arquivos para GitHub Pages
         uses: actions/upload-pages-artifact@v4
