@@ -151,8 +151,8 @@ def step(s, dt, w, h):
     m = s["mode"]
     if m == "uniform":
         s["charge"][0] += s["uniform_vx"] * dt
-        margin = min(w, h - BAR_H) * 0.08 + 30
-        if s["charge"][0] < margin or s["charge"][0] > w - margin:
+        margin = min(sim_rect.width, sim_rect.height) * 0.08 + 12
+        if s["charge"][0] < margin or s["charge"][0] > sim_rect.width - margin:
             s["uniform_vx"] *= -1
     elif m == "kick" and s["kick"]:
         k = s["kick"]
@@ -187,8 +187,8 @@ def step(s, dt, w, h):
 
     hist = s["history"]
     hist.append((s["charge"][0], s["charge"][1], s["t"]))
-    max_r = math.hypot(w, h - BAR_H) * 1.02
-    max_age = max_r / C + 0.15
+    max_r = math.hypot(sim_rect.width, sim_rect.height) * 1.08
+    max_age = max_r / max(C, 1.0) + 0.15
     while hist and (s["t"] - hist[0][2]) > max_age:
         hist.popleft()
 
